@@ -13,6 +13,10 @@ public struct CameraView: UIViewControllerRepresentable {
     @Binding var selectedImage: Image?
     @Environment(\.dismiss) var dismiss
     
+    public init(selectedImage: Binding<Image?>) {
+        self._selectedImage = selectedImage
+    }
+    
     public func makeUIViewController(context: Context) -> some UIViewController {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = context.coordinator

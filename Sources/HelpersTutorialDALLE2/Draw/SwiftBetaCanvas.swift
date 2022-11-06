@@ -14,6 +14,10 @@ public struct SwiftBetaCanvas: View {
     @State var currentLineColor: Color = .red
     @State var currentLineWidth: Float = 10.0
     
+    public init(lines: Binding<[Line]>) {
+        self._lines = lines
+    }
+    
     public var body: some View {
         Canvas { context, _ in
             createNewPath(context: context, lines: lines)
