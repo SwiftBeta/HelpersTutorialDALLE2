@@ -12,10 +12,12 @@ public struct SwiftBetaCanvas: View {
     @State var points: [Point] = []
     @State var currentLine: Int = 0
     @State var currentLineColor: Color = .red
-    @State var currentLineWidth: Float = 16.0
+    var currentLineWidth: Float
     
-    public init(lines: Binding<[Line]>) {
+    public init(lines: Binding<[Line]>,
+                currentLineWidth: Float) {
         self._lines = lines
+        self.currentLineWidth = currentLineWidth
     }
     
     public var body: some View {
@@ -79,6 +81,6 @@ public struct SwiftBetaCanvas: View {
 
 struct SwiftBetaCanvas_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftBetaCanvas(lines: .constant([Line]()))
+        SwiftBetaCanvas(lines: .constant([Line]()), currentLineWidth: 16)
     }
 }
