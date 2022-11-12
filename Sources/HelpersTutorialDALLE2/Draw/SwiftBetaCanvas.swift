@@ -51,7 +51,9 @@ public struct SwiftBetaCanvas: View {
                             line?.color = currentLineColor
                         }
                         
-                        lines[currentLine] = line!
+                        if currentLine < lines.count {
+                            lines[currentLine] = line!
+                        }
                     }
                 })
                 .onEnded({ value in
